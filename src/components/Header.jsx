@@ -16,7 +16,7 @@ export default function Header({ white }) {
     >
       <Container>
         {/* Logo */}
-        <Navbar.Brand className="d-flex flex-column align-items-start mt-5">
+        <Navbar.Brand className="d-flex flex-column align-items-start mt-4">
           <img
             src={lisaLogo}
             alt="Lisa Hospital Logo"
