@@ -8,7 +8,7 @@ export default function Header({ white }) {
     <Navbar
       expand="lg"
       fixed="top"
-      className="py-3"
+      className="py-1"
       style={{
         backgroundColor: white ? "#fff" : "transparent",
         transition: "all 0.3s ease-in-out",
@@ -16,12 +16,12 @@ export default function Header({ white }) {
     >
       <Container>
         {/* Logo */}
-        <Navbar.Brand className="d-flex flex-column align-items-start mt-3">
+        <Navbar.Brand className="d-flex flex-column align-items-start mt-5">
           <img
             src={lisaLogo}
             alt="Lisa Hospital Logo"
             style={{
-              height: "20px",
+              height: "60px",
               objectFit: "contain",
               // filter: white ? "invert(0)" : "invert(1)", // logo color invert on scroll if needed
               transition: "filter 0.3s ease-in-out",

@@ -138,79 +138,101 @@ export default function Home() {
 
       {/* Departments Section */}
       <section className="py-5 bg-light">
-        <Container>
-          <div className="text-start mb-4">
-            <h1 className="fw-bold">Expert Care, Every Specialty</h1>
-            <p className="text-black" style={{ fontSize: "0.85rem" }}>
-              Discover our wide range of specialized medical departments, where experienced doctors provide compassionate care tailored to your needs.
-            </p>
-          </div>
+  <Container>
+    {/* Heading */}
+    <div className="text-start mb-4">
+      <h1 className="fw-bold">Expert Care, Every Specialty</h1>
+      <p className="text-black" style={{ fontSize: "0.9rem" }}>
+        Discover our wide range of specialized medical departments, where
+        experienced doctors provide compassionate care tailored to your needs.
+      </p>
+    </div>
 
-          {/* Department Buttons */}
-          <div className="d-flex overflow-auto mb-4 pb-2" style={{ gap: "8px" }}>
-            {departments.map((dept, index) => (
-              <Button
-                key={index}
-                onClick={() => setActiveDept(dept)}
-                variant={activeDept.name === dept.name ? "danger" : "outline-secondary"}
-                className="rounded-pill flex-shrink-0"
-                style={{ minWidth: "120px", fontSize: "0.8rem", padding: "5px 10px" }}
-              >
-                {dept.icon} <span className="ms-1">{dept.name}</span>
-              </Button>
-            ))}
-          </div>
+    {/* Department Buttons (scrollable on mobile) */}
+    <div
+      className="d-flex overflow-auto mb-4 pb-2"
+      style={{ gap: "8px", scrollbarWidth: "none" }}
+    >
+      {departments.map((dept, index) => (
+        <Button
+          key={index}
+          onClick={() => setActiveDept(dept)}
+          variant={
+            activeDept.name === dept.name ? "danger" : "outline-secondary"
+          }
+          className="rounded-pill flex-shrink-0"
+          style={{
+            minWidth: "120px",
+            fontSize: "0.85rem",
+            padding: "6px 12px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {dept.icon} <span className="ms-1">{dept.name}</span>
+        </Button>
+      ))}
+    </div>
 
-          {/* Active Department Card */}
-          <Row className="justify-content-center">
-            <Col xs={12} md={10}>
-              <Card className="shadow-lg p-4 border-0" style={{ borderRadius: "20px" }}>
-                <Card.Body>
-                  <div className="d-flex flex-column flex-md-row align-items-start">
-                    <div className="flex-grow-1">
-                      <h3 className="fw-bold mb-3">{activeDept.name}</h3>
-                      <p className="text-muted mb-4">{activeDept.description}</p>
+    {/* Active Department Card */}
+    <Row className="justify-content-center">
+      <Col xs={12}>
+        <Card className="shadow-lg p-4 border-0" style={{ borderRadius: "20px" }}>
+          <Card.Body>
+            <Row className="align-items-center">
+              {/* Left: Content */}
+              <Col xs={12} md={7} className="mb-4 mb-md-0">
+                <h3 className="fw-bold mb-3">{activeDept.name}</h3>
+                <p className="text-muted mb-4">{activeDept.description}</p>
 
-                      <h5 className="mb-2">Specialists:</h5>
-                      <Row className="g-2">
-                        {activeDept.specialists.map((doc, index) => (
-                          <Col xs={4} md={3} key={index} className="text-center">
-                            <div
-                              className="mx-auto mb-1"
-                              style={{
-                                width: "50px",
-                                height: "50px",
-                                backgroundImage: doc.image ? `url(${doc.image})` : "none",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                backgroundRepeat: "no-repeat",
-                                borderRadius: "50%",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                              }}
-                            />
-                            <h6 className="fw-bold mb-0" style={{ fontSize: "0.75rem" }}>{doc.name}</h6>
-                            <p className="text-muted mb-0" style={{ fontSize: "0.65rem" }}>{doc.title}</p>
-                          </Col>
-                        ))}
-                      </Row>
+                <h5 className="mb-2">Specialists:</h5>
+                <Row className="g-2">
+                  {activeDept.specialists.map((doc, index) => (
+                    <Col xs={6} sm={4} md={4} lg={3} key={index} className="text-center">
+                      <div
+                        className="mx-auto mb-2"
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          backgroundImage: doc.image ? `url(${doc.image})` : "none",
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          borderRadius: "50%",
+                        }}
+                      />
+                      <h6 className="fw-bold mb-0" style={{ fontSize: "0.8rem" }}>
+                        {doc.name}
+                      </h6>
+                      <p className="text-muted mb-0" style={{ fontSize: "0.7rem" }}>
+                        {doc.title}
+                      </p>
+                    </Col>
+                  ))}
+                </Row>
 
-                      <Button variant="danger" className="rounded-pill mt-3 px-4">
-                        Find Doctors
-                      </Button>
-                    </div>
+                <Button variant="danger" className="rounded-pill mt-3 px-4">
+                  Find Doctors
+                </Button>
+              </Col>
 
-                    <div className="flex-shrink-0 ms-md-4 mt-4 mt-md-0" style={{ width: "350px", height: "250px" }}>
-                      <div className="w-100 h-100 shadow-sm" style={{ backgroundColor: "#ced4da" }}></div>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+              {/* Right: Image / Preview Box */}
+              <Col xs={12} md={5} className="text-center">
+                <div
+                  className="w-100 h-100 shadow-sm rounded"
+                  style={{
+                    backgroundColor: "#ced4da",
+                    minHeight: "200px",
+                    height: "100%",
+                  }}
+                ></div>
+              </Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
+    </Row>
+  </Container>
+</section>
+
     </>
   );
 }
