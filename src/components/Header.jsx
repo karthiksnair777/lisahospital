@@ -21,7 +21,7 @@ export default function Header({ white }) {
             src={lisaLogo}
             alt="Lisa Hospital Logo"
             style={{
-              height: "60px",
+              height: "40px",
               objectFit: "contain",
               // filter: white ? "invert(0)" : "invert(1)", // logo color invert on scroll if needed
               transition: "filter 0.3s ease-in-out",
